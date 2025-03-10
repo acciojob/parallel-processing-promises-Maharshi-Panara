@@ -1,9 +1,16 @@
-//your JS code here. If required.
+const text = document.getElementById("text");
+const delay = document.getElementById("delay");
+const btn = document.getElementById("btn");
 const output = document.getElementById("output");
-const btn = document.getElementById("download-images-button");
 
-const images = [
-  { url: "https://picsum.photos/id/237/200/300" },
-  { url: "https://picsum.photos/id/238/200/300" },
-  { url: "https://picsum.photos/id/239/200/300" },
-];
+//your code here
+async function showMessage() {
+  const message = text.value;
+  const delayVal = delay.value;
+  await new Promise((resolve) => setTimeout(resolve, delayVal));
+  output.innerText = message;
+}
+showMessage().then(()=>{
+	output.innerHTML = text.value;
+});
+btn.addEventListener("click", showMessage);
